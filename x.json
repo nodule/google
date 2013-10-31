@@ -1,0 +1,36 @@
+{
+  "name": "google",
+  "description": "Google Api for Chiχ",
+  "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nodule/google.git"
+  },
+  "dependencies": {
+    "chit": "0.x.x"
+  },
+  "nodes": [
+    {
+      "ports": {
+        "input": {},
+        "output": {
+          "apis": {
+            "title": "APIs",
+            "type": "function"
+          }
+        }
+      },
+      "require": {
+        "googleapis": "0.x.x"
+      },
+      "phrases": {
+        "active": "Loading google apis"
+      },
+      "description": "Google Apis",
+      "ns": "google",
+      "name": "apis",
+      "fn": "output = { apis: googleapis }\n"
+    }
+  ],
+  "twigs": []
+}
