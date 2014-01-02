@@ -16,7 +16,8 @@
     "test": "chit -r"
   },
   "dependencies": {
-    "chit": "0.x.x"
+    "chit": "0.x.x",
+    "googleapis": "0.x.x"
   },
   "devDependencies": {
     "chit": "0.x.x"

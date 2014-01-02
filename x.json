@@ -7,10 +7,20 @@
     "url": "https://github.com/nodule/google.git"
   },
   "dependencies": {
-    "chit": "0.x.x"
+    "chit": "0.x.x",
+    "googleapis": "0.x.x"
   },
   "nodes": [
     {
+      "name": "apis",
+      "ns": "google",
+      "description": "Google Apis",
+      "phrases": {
+        "active": "Loading google apis"
+      },
+      "require": {
+        "googleapis": "0.x.x"
+      },
       "ports": {
         "input": {},
         "output": {
@@ -20,15 +30,6 @@
           }
         }
       },
-      "require": {
-        "googleapis": "0.x.x"
-      },
-      "phrases": {
-        "active": "Loading google apis"
-      },
-      "description": "Google Apis",
-      "ns": "google",
-      "name": "apis",
       "fn": "output = { apis: googleapis }\n"
     }
   ],
