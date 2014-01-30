@@ -1,1 +1,3 @@
-output = { apis: googleapis }
+output = {
+  apis: googleapis
+}
