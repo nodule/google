@@ -7,30 +7,69 @@
     "url": "https://github.com/nodule/google.git"
   },
   "dependencies": {
-    "chit": "0.x.x",
-    "googleapis": "0.x.x"
+    "google-speech-api": "0.x.x"
   },
   "nodes": [
     {
       "ports": {
-        "input": {},
+        "input": {
+          "client": {
+            "type": "string",
+            "description": "The name of the client you are connecting with.",
+            "default": "chromium"
+          },
+          "lang": {
+            "type": "string",
+            "description": "The spoken language in the file.",
+            "default": "en-US"
+          },
+          "maxResults": {
+            "type": "number",
+            "description": "The maximum number of hypotheses returned by google",
+            "default": 1
+          },
+          "pfilter": {
+            "type": "number",
+            "description": "Filter profanity by replacing flagged words with pound symbols. Set 0 to unfilter",
+            "default": 1
+          },
+          "clipSize": {
+            "type": "number",
+            "description": "The audio duration of files sent to google (in seconds.) Larger files will be broken into pieces",
+            "default": 15
+          },
+          "maxRequests": {
+            "type": "number",
+            "description": "The maximum number of clips to send to google at a time",
+            "default": 4
+          },
+          "sampleRate": {
+            "type": "number",
+            "description": "The sample rate of the audio sent to google",
+            "default": 16000
+          }
+        },
         "output": {
-          "apis": {
-            "title": "APIs",
-            "type": "function"
+          "error": {
+            "title": "Error",
+            "type": "object"
+          },
+          "out": {
+            "title": "Results",
+            "type": "object"
           }
         }
       },
       "require": {
-        "googleapis": "0.x.x"
+        "google-speech-api": "0.x.x"
       },
       "phrases": {
-        "active": "Loading google apis"
+        "active": "Speaking..."
       },
-      "description": "Google Apis",
+      "description": "Google Speech Api",
       "ns": "google",
-      "name": "apis",
-      "fn": "output = {\n  apis: googleapis\n}\n"
+      "name": "speech",
+      "fn": "var output = function(cb) {\n  google_speech_api(input, function (err, out) {\n    if (err) {\n      cb({ error: err });\n    } else {\n      cb({ out: out });\n    }\n  });\n};\n"
     }
   ],
   "twigs": []
