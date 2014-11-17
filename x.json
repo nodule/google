@@ -11,6 +11,11 @@
   },
   "nodes": [
     {
+      "dependencies": {
+        "npm": {
+          "google-speech-api": "0.x.x"
+        }
+      },
       "ports": {
         "input": {
           "client": {
@@ -59,9 +64,6 @@
             "type": "object"
           }
         }
-      },
-      "require": {
-        "google-speech-api": "0.x.x"
       },
       "phrases": {
         "active": "Speaking..."
