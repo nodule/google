@@ -1,9 +1,9 @@
 var output = function(cb) {
   google_speech_api(input, function (err, out) {
     if (err) {
-      cb({ error: err });
+      cb({ error: $.create(err) });
     } else {
-      cb({ out: out });
+      cb({ out: $.create(out) });
     }
   });
 };
