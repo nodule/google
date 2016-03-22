@@ -71,7 +71,7 @@
       "description": "Google Speech Api",
       "ns": "google",
       "name": "speech",
-      "fn": "var output = function(cb) {\n  google_speech_api(input, function (err, out) {\n    if (err) {\n      cb({ error: err });\n    } else {\n      cb({ out: out });\n    }\n  });\n};\n"
+      "fn": "var output = function(cb) {\n  google_speech_api(input, function (err, out) {\n    if (err) {\n      cb({ error: $.create(err) });\n    } else {\n      cb({ out: $.create(out) });\n    }\n  });\n};\n"
     }
   ],
   "twigs": []
